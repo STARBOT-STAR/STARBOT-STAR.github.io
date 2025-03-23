@@ -1,0 +1,110 @@
+/* 页面基本样式 */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle, #2a006f, #4c00b0, #7a00ff, #ae4aff);
+    overflow: hidden;
+    color: white;
+    height: 100%;
+}
+
+/* 禁止选中的样式 */
+body {
+    -webkit-user-select: none; /* 禁止 Chrome 和 Safari 的文字选中 */
+    -moz-user-select: none;    /* 禁止 Firefox */
+    -ms-user-select: none;     /* 禁止 Internet Explorer */
+    user-select: none;         /* 标准 CSS 规范 */
+}
+
+
+/* 星星背景样式 */
+#stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* 标题栏样式 */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* 初始透明 */
+    transform: translateY(100px); /* 初始位置向下偏移 */
+    transition: all 0.25s ease-in-out; /* 动画过渡效果 */
+}
+
+.header.visible {
+    opacity: 1; /* 动画最终透明度 */
+    transform: translateY(0); /* 动画最终位置 */
+}
+
+.logo {
+    font-size: 4em;
+    font-weight: bold;
+    color: gold;
+    font-family: "Baskerville", "Times New Roman", serif; /* 多字体备选 */
+}
+
+
+.news {
+    margin-top: 10px;
+}
+
+.news ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.news ul li {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.news ul li span {
+    color: gold; /* 重要内容高亮 */
+}
+
+/* 链接项 */
+.links {
+    position: relative;
+    width: 100%;
+    height: 80%; /* 链接区域高度为80% */
+}
+
+.link-item {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* 圆形按钮 */
+    background: white;
+    color: #4c00b0;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s, opacity 0.15s; /* 悬停放大效果和透明度过渡 */
+    opacity: 0; /* 初始隐藏 */
+    z-index: 1;
+}
+
+.link-item.visible {
+    opacity: 1; /* 显示 */
+}
+
+.link-item:hover {
+    transform: scale(1.2); /* 悬停放大 */
+    box-shadow: 0 0 20px gold; /* 周围发光效果 */
+}
+
+.special {
+    border: 3px solid gold; /* 特殊链接的金色边框 */
+    background-color: rgba(255, 255, 255, 0.9); /* 背景半透明 */
+}
+

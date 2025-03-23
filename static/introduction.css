@@ -1,0 +1,111 @@
+/* static/introduction.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: #1b4965;
+}
+
+/* 禁止选中的样式 */
+body {
+    -webkit-user-select: none; /* 禁止 Chrome 和 Safari 的文字选中 */
+    -moz-user-select: none;    /* 禁止 Firefox */
+    -ms-user-select: none;     /* 禁止 Internet Explorer */
+    user-select: none;         /* 标准 CSS 规范 */
+}
+
+
+.page-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.page.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* 页面背景色 */
+#page1 { background: linear-gradient(135deg, #627bcc, #1b4965); }
+#page2 { background: linear-gradient(135deg, #f67280, #c06c84); }
+#page3 { background: linear-gradient(135deg, #355c7d, #6c5b7b); }
+#page4 { background: linear-gradient(135deg, #47cbff, #cf33ff); }
+#page5 { background: linear-gradient(135deg, #2193b0, #6dd5ed); }
+#page6 { background: linear-gradient(135deg, #30cfd0, #330867); }
+#page7 { background: linear-gradient(135deg, #89fffd, #ef32d9); }
+
+.content {
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.image {
+  width: 300px;
+  margin-top: 30px;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes flipVertical {
+  from { transform: rotateX(90deg); }
+  to { transform: rotateX(0); }
+}
+
+@keyframes cubeRotate {
+  from { transform: rotateY(90deg) scale(0.8); }
+  to { transform: rotateY(0) scale(1); }
+}
+
+@keyframes windowOpen {
+  from { clip-path: inset(50% 50% 50% 50%); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+.page[data-animation="fade"] { animation: fadeIn 1s; }
+.page[data-animation="slide-up"] { animation: slideUp 1s; }
+.page[data-animation="slide-down"] { animation: slideDown 1s; }
+.page[data-animation="flip"] { animation: flipVertical 1s; }
+.page[data-animation="cube"] { animation: cubeRotate 1s; }
+.page[data-animation="window"] { animation: windowOpen 1s; }
